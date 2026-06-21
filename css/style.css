@@ -36,7 +36,7 @@ p {
 }
 h2 {
 font-size: 1.86rem;
-margin-bottom: 2rem;
+margin: 0 auto 2rem auto;
 }
 
 h3{
@@ -180,7 +180,7 @@ gap: 2rem;
 }
 
 .hub-card {
-width: 340px;
+width: 500px;
 max-width: 90%;
 background-color: rgb(245, 245, 235);
 border-radius: 2rem;
