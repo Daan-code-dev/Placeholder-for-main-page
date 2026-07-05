@@ -6,6 +6,7 @@
     <title>Improving Chess – Chess Book Reviews and Improvement Guides</title>
     <link rel="stylesheet" href="css/style.css">
   </head>
+  
   <body>
     <header>
        <img src="images/Chess-logo-website.png" alt="Logo with a chess-knight with the text: Chess master Chess website" class="logo">
@@ -38,5 +39,45 @@ This page is designed to help beginners improve their chess and build a solid fo
   <a href="https://www.iubenda.com/privacy-policy/89669700" class="iubenda-white iubenda-noiframe iubenda-embed" title="Privacy Policy ">Privacy Policy</a><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
   <a href="https://www.iubenda.com/privacy-policy/89669700/cookie-policy" class="iubenda-white iubenda-noiframe iubenda-embed" title="Cookie Policy ">Cookie Policy</a><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
 </footer>
+<div id="cookie-banner" style="
+position: fixed;
+bottom: 0;
+left: 0;
+right: 0;
+background: #111;
+color: white;
+padding: 15px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+z-index: 9999;
+font-family: Arial, sans-serif;
+">
+  <span>
+    This website uses cookies to improve your experience and track affiliate performance.
+  </span>
+
+  <button onclick="acceptCookies()" style="
+    background: #2e7d32;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+  ">
+    Accept
+  </button>
+</div>
+
+<script>
+function acceptCookies() {
+  document.getElementById("cookie-banner").style.display = "none";
+  localStorage.setItem("cookiesAccepted", "true");
+}
+
+if (localStorage.getItem("cookiesAccepted") === "true") {
+  document.getElementById("cookie-banner").style.display = "none";
+}
+</script>
   </body>
 </html>
