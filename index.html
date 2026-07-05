@@ -39,45 +39,46 @@ This page is designed to help beginners improve their chess and build a solid fo
   <a href="https://www.iubenda.com/privacy-policy/89669700" class="iubenda-white iubenda-noiframe iubenda-embed" title="Privacy Policy ">Privacy Policy</a><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
   <a href="https://www.iubenda.com/privacy-policy/89669700/cookie-policy" class="iubenda-white iubenda-noiframe iubenda-embed" title="Cookie Policy ">Cookie Policy</a><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
 </footer>
-<div id="cookie-banner" style="
-position: fixed;
-bottom: 0;
-left: 0;
-right: 0;
-background: #111;
-color: white;
-padding: 15px;
-display: flex;
-justify-content: space-between;
-align-items: center;
-z-index: 9999;
-font-family: Arial, sans-serif;
-">
-  <span>
-    This website uses cookies to improve your experience and track affiliate performance.
-  </span>
-
-  <button onclick="acceptCookies()" style="
-    background: #2e7d32;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
-    border-radius: 5px;
-  ">
-    Accept
-  </button>
+<div id="b" style="position:fixed;bottom:0;left:0;right:0;background:#111;color:#fff;padding:12px;display:flex;justify-content:space-between;align-items:center;z-index:9999;font-family:Arial">
+  <span style="font-size:13px">Cookies for analytics & affiliate tracking</span>
+  <div>
+    <button id="r" style="background:#555;color:#fff;border:0;padding:8px 12px;margin-right:6px;border-radius:5px">Reject</button>
+    <button id="a" style="background:#2e7d32;color:#fff;border:0;padding:8px 12px;border-radius:5px">Accept</button>
+  </div>
 </div>
 
 <script>
-function acceptCookies() {
-  document.getElementById("cookie-banner").style.display = "none";
-  localStorage.setItem("cookiesAccepted", "true");
+const ID="G-XXXXXXXXXX";
+
+const g=()=>localStorage.getItem("c");
+const s=v=>localStorage.setItem("c",v);
+const h=_=>document.getElementById("b")?.remove();
+const ok=()=>g()==="1";
+
+function ga(){
+  if(!ok())return;
+  let d=document,s=d.createElement("script");
+  s.src="https://www.googletagmanager.com/gtag/js?id="+ID;
+  s.async=1;
+  d.head.appendChild(s);
+  s.onload=_=>{
+    window.dataLayer=window.dataLayer||[];
+    window.gtag=function(){dataLayer.push(arguments)};
+    gtag("js",new Date());
+    gtag("config",ID);
+  }
 }
 
-if (localStorage.getItem("cookiesAccepted") === "true") {
-  document.getElementById("cookie-banner").style.display = "none";
-}
+(function(){
+  if(g()){
+    h();
+    if(ok())ga();
+    return;
+  }
+
+  document.getElementById("a").onclick=_=>{s("1");h();ga()};
+  document.getElementById("r").onclick=_=>{s("0");h()};
+})();
 </script>
   </body>
 </html>
